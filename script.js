@@ -2,8 +2,13 @@ const Tempo = document.getElementById("tempo");
 const  fase  = document.getElementById("fase");
 const btiniciar = document.getElementById("btiniciar");
 const btresetar = document.getElementById("btresetar");
+const btpausar = document.getElementById("btpausar");
 
-let temporestante =25 * 60;
+const tempoFoco = 25 *  60;
+const tempoPausa = 5 * 60;
+
+
+let temporestante = tempoFoco;
 let rodando = false;
 let faseAtual = "foco";
 let intervalo = null;
@@ -18,6 +23,20 @@ function mostrarTempo(){
 
 }
 mostrarTempo();
+
+function  trocarFase(){
+    if(faseAtual === 'foco'){
+        faseAtual= 'pausa';
+        fase.textContent = 'Pausa';
+        temporestante = tempoPausa;
+    } else {
+        faseAtual = 'foco';
+        fase.textContent = 'Foco';
+        temporestante = tempoFoco;
+    }
+    mostrarTempo();
+}
+
 //botao iniciar
 
 function iniciarTime(){
@@ -27,17 +46,35 @@ function iniciarTime(){
 
     intervalo = setInterval(function(){
         temporestante = temporestante - 1;
+
+        if(temporestante <= 0 ){
+            clearInterval(intervalo);
+            rodando ='false';
+            trocarFase();
+            iniciarTime();
+            return;
+        }
         mostrarTempo();
     },1000);
 }
 btiniciar.addEventListener("click", iniciarTime);
+
+//pausar
+function pausarTime(){
+    clearInterval(intervalo);
+    rodando = false;
+
+}
+btpausar.addEventListener('click', pausarTime);
 
 //botao resetar
 
 function resetarTime(){
     clearInterval(intervalo);
     rodando = false;
-    temporestante = 25 * 60;
+    faseAtual = 'foco';
+    fase.textContent = 'foco';
+    temporestante = tempoFoco;
     mostrarTempo();
 }
 btresetar.addEventListener("click", resetarTime);
