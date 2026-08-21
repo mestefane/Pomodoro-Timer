@@ -1,35 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap');
+
 body{
-    background: #9da4ed;
-    font: normal 15pt Arial;
+    background: #055139;
+    font: normal 15pt 'Lora', serif;
     margin: 0;
+    
 }
 header{
-    color: rgb(244, 237, 237);
+    color: rgb(255, 255, 255);
     text-align: center;
 }
+
 section {
-    background: white;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
     border-radius: 10px;
-    padding:15px;
+    padding: 15px;
     width: 500px;
     margin: auto;
-    box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.264);
-    text-align: center ;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.264);
+    text-align: center;
+    color: white;
 }
-.circulo{
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    margin:  30px auto;
+
+.aba{
+    padding: 4px 12px;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius:6px ;
+}
+
+.aba.ativa{
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;     
+    font-weight: 700;
+}
+.botoes{
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
-    background: #fefeff;
-    border: 10px solid #825cce;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
 }
+
+.botoes button{
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.botoes button:active{
+    transform: translateY(4px);
+}
+
+#btiniciar , #btresetar{
+    background-color: #ffffff;
+    color: #055139;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 0;
+    width: 100%;
+    max-width: 150px;
+    cursor: pointer;
+    box-shadow: 0 6px 0 rgba(247, 243, 243, 0.149); 
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
 #tempo{
-    font-size: 45pt;
-    font-weight: bold;
+
+    font-size: 95pt;
+    font-weight: 750;
+    font-family: 'Baloo 2', sans-serif;
 }
 
 
